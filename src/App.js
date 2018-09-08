@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PureComponent } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
@@ -7,6 +7,18 @@ const Foo = ({ value }) => {
   return <div className="Foo"> Foo: {value} </div>;
 };
 
+
+
+// class Bar extends Component {
+
+//   constructor() {
+//     super();
+//     this.state = {
+//       ownValue: "initial-own-value"
+//     };
+//   }
+
+// }
 
 const Bar = ({ onClick }) => {
 
@@ -31,6 +43,18 @@ const Other = ({ }) => {
   return <div className="Other"> Other </div>;
 };
 
+
+class Pure extends PureComponent {
+
+  render() {
+
+    const { v } = this.props;
+    console.log("render pure", v);
+    return <div className="Pure">
+      Pure {v}
+    </div>
+  }
+}
 
 class App extends Component {
 
@@ -58,6 +82,14 @@ class App extends Component {
         <Bar onClick={this.handleBarChange} />
 
         <Other />
+        <Other />
+        <Other />
+
+
+        <Pure v="static" />
+
+        <Pure v={this.state.value} />
+
 
       </div>
     );
