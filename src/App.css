@@ -34,3 +34,10 @@ div {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.error-message {
+  border: solid 1px red; 
+  background-color: #f88;
+  color: red; 
+  padding: 1em;
+}
